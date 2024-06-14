@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최강유의 포트폴리오</title>
+    <style>
+        header {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #402fd2;
+            width: 100%;
+        }
+        li {
+            float: left;
+            width: 25%;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active) {
+            background-color: #f4c128;
+        }
+        .button {
+            background-color: #402fd2;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #f4c128;
+            color: white;
+        }
+        section {
+            width: 75%; /* 각 섹션의 가로 크기를 가로 전체로 설정 */
+            float: left; /* 네비게이션 바 옆에 배치 */
+            padding: 20px;
+            box-sizing: border-box; /* 패딩을 요소의 크기에 포함시키도록 설정 */
+            display: none; /* 초기에 모든 섹션을 숨김 */
+        }
+        .active {
+            display: block; /* 활성화된 섹션만 표시 */
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1>최강유의 포트폴리오</h1>
+    </header>
+    
+    <ul>
+        <li><a href="#" onclick="showSection('intro')">소개글</a></li>
+        <li><a href="#" onclick="showSection('edu')">전공 정보</a></li>
+        <li><a href="#" onclick="showSection('interests')">관심 분야</a></li>
+        <li><a href="#" onclick="showSection('hobbies')">취미</a></li>
+    </ul>
+    
+    <section id="intro" class="active">
+        <h2>소개글</h2>
+        <p>이름 : 최강유</p>
+        <p>나이 : 만 21세</p>
+        <p>주소 : 인천광역시 서구 청라동 거주</p>
+        <p>이메일 : kang__u@naver.com</p>
+        <p>재학 중인 학교 : 청운대학교</p>
+        <img src="청운대학교.jpg" alt="청운대학교 사진" style="display: none;">
+        <button class="button" onclick="toggleImage('intro')">사진 보기</button>
+    </section>
+    
+    <section id="edu">
+        <h2>전공 정보</h2>
+        <p>학과 : 컴퓨터공학과</p>
+        <p>수강 전공과목 : 웹클라이언트프로그래밍, 자료구조, 데이터베이스, 서버구축 및 관리</p>
+        <p>수강 교양과목 : Design Thinking, 스포츠와 경제</p>
+        <img src="html 사진.jpg" alt="html 사진">
+    </section>
+    
+    <section id="interests">
+        <h2>관심 분야</h2>
+        <p>인공지능</p>
+        <p>여행</p>
+        <img src="비행기 사진.jpg" alt="비행기 사진">
+    </section>
+    
+    <section id="hobbies">
+        <h2>취미</h2>
+        <p>기타</p>
+        <p>오락</p>
+        <img src="기타 사진.jpg" alt="기타 사진">
+    </section>
+
+<script>
+    function showSection(sectionId) {
+        var sections = document.querySelectorAll('section'); // 모든 섹션을 가져옴
+        sections.forEach(function(section) {
+            section.classList.remove('active'); // 모든 섹션에서 'active' 클래스 제거
+        });
+        var selectedSection = document.getElementById(sectionId); // 선택한 섹션을 가져옴
+        selectedSection.classList.add('active'); // 선택한 섹션에 'active' 클래스 추가
+    }
+
+    function toggleImage(sectionId) {
+        var mediaDiv = document.querySelector('#' + sectionId + ' img'); // 해당 섹션의 이미지를 가져옴
+        if (mediaDiv.style.display === 'none') {
+            mediaDiv.style.display = 'block';
+        } else {
+            mediaDiv.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
